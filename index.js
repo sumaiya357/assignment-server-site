@@ -22,12 +22,22 @@ async function run(){
       
     try{
         const userCollection = client.db('allCategory').collection('category');
-        const users= {
-                id:'1',
-                title:'new package'
-        }
-        const result = await userCollection.insertOne(users)
-        console.log(result)
+     
+        app.get('/category',async(req,res) => {
+            const query= {};
+            const cursor = userCollection.find(query)
+        
+        const category = await cursor.limit(3).toArray();
+        res.send(category)
+        })
+
+        app.get('/allcategory',async(req,res) => {
+            const query= {};
+            const cursor = userCollection.find(query)
+        
+           const category = await cursor.toArray();
+            res.send(category)
+        })
     }
     finally{
 
