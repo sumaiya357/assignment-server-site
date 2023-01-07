@@ -48,7 +48,7 @@ async function run(){
             res.send(category);
         })
 
-        app.get('/allreviews',async(req,res) => {
+        app.get('/reviews',async(req,res) => {
             const query= {};
             const cursor = userCollection.find(query)
         
