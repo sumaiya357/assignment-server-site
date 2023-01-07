@@ -45,15 +45,23 @@ async function run(){
             const query= {_id:ObjectId(id)}
             const cursor = userCollection.find(query)
            const category = await cursor.toArray();
-            res.send(category)
+            res.send(category);
+        })
+
+        app.get('/reviews',async(req,res) => {
+            const query= {};
+            const cursor = userCollection.find(query)
+        
+           const result = await cursor.toArray();
+            res.send(result)
         })
     }
     finally{
-
+        
     }
 } 
 
-run().catch(er=>console.log(er));
+run().catch(err=>console.log(err));
 
 
 app.get('/', (req,res) => {
