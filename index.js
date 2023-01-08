@@ -22,6 +22,7 @@ async function run(){
       
     try{
         const userCollection = client.db('allCategory').collection('category');
+        const reviewCollection = client.db('allCategory').collection('reviews');
      
         app.get('/category',async(req,res) => {
             const query= {};
@@ -50,7 +51,7 @@ async function run(){
 
         app.get('/reviews',async(req,res) => {
             const query= {};
-            const cursor = userCollection.find(query)
+            const cursor = reviewCollection.find(query)
         
            const result = await cursor.toArray();
             res.send(result)
