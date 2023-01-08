@@ -62,13 +62,13 @@ async function run(){
     }
 } 
 
-run().catch(err=>console.log(err));
+    run().catch(err=>console.log(err));
 
 
-app.get('/', (req,res) => {
-    res.send('hello from mongo server for photography db');
-});
+    app.get('/', (req,res) => {
+        res.send('hello from mongo server for photography db');
+    });
 
-app.listen(port, () => {
-    console.log(`listening to port ${port}`);
-})
+    app.listen(port, () => {
+        console.log(`listening to port ${port}`);
+    })
